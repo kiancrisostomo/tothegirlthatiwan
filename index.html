@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>to my piz, the person i never expected to fall for. 🤍</title>
+  <meta name="description" content="a quiet confession, written sincerely from the heart." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Variables ────────────────────────────────────────────── */
+    :root {
+      --pink-primary: #e64980;
+      --pink-soft:    #f783ac;
+      --pink-blush:   #ffdeeb;
+      --pink-deep:    #c2255c;
+      --bg-cream:     #fffafb;
+      --text-dark:    #3b222c;
+      --text-body:    #4a2e39;
+      --text-muted:   #8c6575;
+      --border-soft:  rgba(247, 131, 172, 0.35);
+      --shadow-glow:  rgba(230, 73, 128, 0.18);
+    }
+
+    /* ─── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: linear-gradient(180deg, #fff2f6 0%, #ffe9f0 35%, #ffdce6 70%, #ffd4e0 100%);
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z' fill='%23e64980'/%3E%3C/svg%3E"), auto;
+    }
+
+    /* ─── Subtle Film Grain Overlay ────────────────────────────────── */
+    .film-grain {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ─── SVG Definitions (hidden) ─────────────────────────────────── */
+    .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+    /* ─── Particle Canvas ──────────────────────────────────────────── */
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Page wrapper (Narrow intimate reading column) ───────────── */
+    .page-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+    }
+
+    /* ─── Floating SVGs (gentle fairy elements) ────────────────────── */
+    .float-svg {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatUp linear infinite;
+      opacity: 0;
+      filter: drop-shadow(0 4px 10px rgba(230, 73, 128, 0.22));
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh) scale(0.65) rotate(-10deg); opacity: 0; }
+      12%  { opacity: 0.55; }
+      85%  { opacity: 0.35; }
+      100% { transform: translateY(-10vh) scale(1.15) rotate(10deg); opacity: 0; }
+    }
+
+    /* ─── HERO SECTION ─────────────────────────────────────────────── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      text-align: center;
+      padding: 3rem 1rem 3.5rem;
+      position: relative;
+    }
+
+    .hero-glow-ring {
+      position: absolute;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 175, 200, 0.35) 0%, rgba(255, 210, 225, 0.15) 50%, transparent 70%);
+      animation: pulseGlow 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1);   opacity: 0.7; }
+      50%       { transform: scale(1.15); opacity: 1;   }
+    }
+
+    .hero-kitty-wrap {
+      position: relative;
+      margin-bottom: 1.2rem;
+      animation: kittyBob 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 10px 24px rgba(230, 73, 128, 0.32));
+    }
+
+    .hero-kitty-wrap svg {
+      width: 120px; height: 140px;
+    }
+
+    @keyframes kittyBob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%       { transform: translateY(-14px) rotate(2deg); }
+    }
+
+    .hero-pretitle {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+      color: var(--pink-soft);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      animation: fadeSlideDown 1s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6.5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--pink-deep);
+      text-shadow: 0 0 28px rgba(230, 73, 128, 0.22);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 620px;
+      letter-spacing: -0.015em;
+      animation: fadeSlideDown 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      animation: fadeSlideUp 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-icons-row {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+      animation: fadeIn 1.6s ease 0.4s both;
+    }
+
+    .hero-icons-row svg {
+      animation: gentleBeat 1.8s ease-in-out infinite;
+    }
+    .hero-icons-row svg:nth-child(2) { animation-delay: 0.2s; }
+    .hero-icons-row svg:nth-child(3) { animation-delay: 0.4s; }
+    .hero-icons-row svg:nth-child(4) { animation-delay: 0.6s; }
+    .hero-icons-row svg:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes gentleBeat {
+      0%, 100% { transform: scale(1); }
+      25%       { transform: scale(1.22); }
+      50%       { transform: scale(1); }
+    }
+
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease 0.9s both;
+    }
+    .scroll-hint .arrow { font-size: 1.05rem; animation: bounce 1.6s ease-in-out infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    /* ─── MUSIC PLAYER BUTTON ───────────────────────────────────────── */
+    .music-wrap {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .music-hint {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+      box-shadow: 0 4px 18px var(--shadow-glow);
+      animation: fadeIn 2s ease 1.2s both;
+    }
+
+    .music-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f783ac, #e64980);
+      box-shadow:
+        0 0 0 3px rgba(255, 222, 235, 0.8),
+        0 8px 24px var(--shadow-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: musicPulse 2.6s ease-in-out infinite;
+      position: relative;
+    }
+
+    .music-btn svg { width: 28px; height: 28px; }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+      box-shadow:
+        0 0 0 5px rgba(255, 222, 235, 0.9),
+        0 10px 30px var(--shadow-glow);
+    }
+
+    .music-btn.playing { animation: musicPulsePlaying 1.3s ease-in-out infinite; }
+
+    @keyframes musicPulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(255, 222, 235, 0.8), 0 8px 24px var(--shadow-glow); }
+      50%       { box-shadow: 0 0 0 7px rgba(255, 222, 235, 0.3), 0 10px 28px var(--shadow-glow); }
+    }
+    @keyframes musicPulsePlaying {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(230, 73, 128, 0.6), 0 8px 28px rgba(230, 73, 128, 0.55); }
+      50%       { box-shadow: 0 0 0 12px rgba(230, 73, 128, 0.15), 0 10px 32px rgba(230, 73, 128, 0.65); }
+    }
+
+    /* ─── SECTION: Fade on Scroll ──────────────────────────────────── */
+    .section { margin-bottom: 3.5rem; }
+
+    /* ─── DIVIDER ───────────────────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin: 2.8rem 0;
+      color: var(--pink-soft);
+      opacity: 0.75;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink-soft), transparent);
+    }
+    .divider svg { width: 22px; height: 22px; }
+
+    /* ─── INTIMATE LETTER CARD (Faint Paper Texture) ───────────────── */
+    .letter-card {
+      background: rgba(255, 253, 254, 0.86);
+      backdrop-filter: blur(24px) saturate(1.25);
+      -webkit-backdrop-filter: blur(24px) saturate(1.25);
+      border: 1.5px solid rgba(247, 131, 172, 0.45);
+      border-radius: 30px;
+      padding: clamp(2.2rem, 6.5vw, 4rem) clamp(1.8rem, 5.5vw, 3.4rem);
+      box-shadow:
+        0 14px 50px rgba(230, 73, 128, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        inset 0 0 80px rgba(255, 230, 240, 0.4);
+      position: relative;
+    }
+
+    /* Peeking Hello Kitty at Card Top */
+    .card-peeking-kitty {
+      position: absolute;
+      top: -46px;
+      left: 35px;
+      width: 76px;
+      height: 60px;
+      filter: drop-shadow(0 6px 14px rgba(230, 73, 128, 0.25));
+      z-index: 2;
+    }
+
+    .card-bow-decor {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      width: 32px;
+      height: 22px;
+      opacity: 0.85;
+    }
+
+    /* Letter Header */
+    .letter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 4.8vw, 2.5rem);
+      font-weight: 600;
+      color: var(--pink-deep);
+      margin-bottom: 2rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .letter-salutation {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.6vw, 1.85rem);
+      font-style: italic;
+      color: var(--pink-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Letter Body Paragraphs ───────────────────────────────────── */
+    .letter-body {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(1rem, 2.2vw, 1.08rem);
+      line-height: 2.05;
+      color: var(--text-body);
+    }
+
+    .letter-body p {
+      margin-bottom: 1.55rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .letter-body p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Rendered formatting */
+    .letter-body strong {
+      font-weight: 600;
+      color: var(--pink-deep);
+    }
+
+    .letter-body em {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      color: var(--pink-primary);
+    }
+
+    /* Climax Heading */
+    .letter-climax {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.1rem, 5.5vw, 2.9rem);
+      font-weight: 600;
+      color: var(--pink-deep);
+      text-align: center;
+      margin: 2.8rem 0 0.4rem;
+      letter-spacing: -0.015em;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .letter-climax.visible { opacity: 1; transform: translateY(0); }
+
+    .letter-climax-sub {
+      text-align: center;
+      font-size: 1.15rem;
+      color: var(--pink-soft) !important;
+      margin-bottom: 2.2rem !important;
+    }
+
+    /* Arvi Second Name Note */
+    .name-note {
+      background: rgba(255, 235, 243, 0.65);
+      border-left: 3px solid var(--pink-soft);
+      padding: 0.9rem 1.2rem;
+      border-radius: 0 16px 16px 0;
+      margin: 2rem 0 1.6rem !important;
+      font-size: 0.98rem !important;
+      color: var(--text-muted) !important;
+      font-style: italic;
+    }
+
+    /* Signature Section */
+    .letter-signature {
+      margin-top: 2.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed var(--border-soft);
+    }
+
+    .sig-fondness {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem !important;
+    }
+
+    .sig-bold {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem !important;
+    }
+
+    .sig-dedication {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--pink-deep);
+      margin-bottom: 1.2rem !important;
+    }
+
+    .sig-name-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .sig-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--pink-deep);
+    }
+
+    .sig-name-wrap svg {
+      width: 30px; height: 30px;
+    }
+
+    /* ─── CORNER PEEKERS ────────────────────────────────────────────── */
+    .cat-peek {
+      position: fixed;
+      z-index: 5;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 16px rgba(230, 73, 128, 0.3));
+    }
+    .cat-peek svg { width: 85px; height: 72px; }
+
+    .cat-peek.bottom-left {
+      bottom: 0; left: 1rem;
+      animation: peekLeft 7s ease-in-out infinite;
+      transform-origin: bottom left;
+    }
+    .cat-peek.bottom-right {
+      bottom: 0; right: 8.5rem;
+      animation: peekRight 8s ease-in-out infinite 1.5s;
+      transform-origin: bottom right;
+    }
+
+    @keyframes peekLeft {
+      0%, 70%, 100% { transform: translateY(85%) rotate(-4deg); }
+      15%, 55%      { transform: translateY(12%) rotate(4deg); }
+    }
+    @keyframes peekRight {
+      0%, 70%, 100% { transform: translateY(85%) rotate(4deg); }
+      15%, 55%      { transform: translateY(10%) rotate(-4deg); }
+    }
+
+    /* ─── SPARKLE BURST (CLICK) ────────────────────────────────────── */
+    .spark-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: sparkBurst 0.9s ease-out forwards;
+    }
+    .spark-particle svg { width: 22px; height: 22px; }
+    @keyframes sparkBurst {
+      0%   { opacity: 1; transform: translate(0,0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.25); }
+    }
+
+    /* ─── WELCOME OVERLAY ───────────────────────────────────────────── */
+    #welcome-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: linear-gradient(135deg, rgba(255, 245, 248, 0.985) 0%, rgba(255, 218, 230, 0.985) 100%);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      cursor: pointer;
+      transition: opacity 0.85s ease, visibility 0.85s ease;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    #welcome-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .overlay-kitty {
+      width: 120px; height: 140px;
+      animation: kittyBob 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 10px 28px rgba(230, 73, 128, 0.38));
+    }
+    .overlay-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6.5vw, 3.2rem);
+      font-weight: 600;
+      color: var(--pink-deep);
+      text-shadow: 0 0 24px rgba(230, 73, 128, 0.2);
+      line-height: 1.2;
+      max-width: 580px;
+    }
+    .overlay-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--text-muted);
+    }
+    .overlay-btn {
+      margin-top: 0.5rem;
+      padding: 0.95rem 2.8rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #f783ac, #e64980);
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 26px var(--shadow-glow);
+      animation: musicPulse 2.2s ease-in-out infinite;
+      transition: transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .overlay-btn:hover { transform: scale(1.05); }
+    .overlay-btn svg { width: 22px; height: 22px; }
+    .overlay-icons {
+      display: flex;
+      gap: 0.85rem;
+      opacity: 0.7;
+    }
+    .overlay-icons svg { width: 24px; height: 24px; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+    footer svg { width: 16px; height: 16px; }
+
+    /* ─── RESPONSIVE ADJUSTMENTS ────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .page-wrapper { padding: 0 1rem 4rem; }
+      .letter-card { padding: 2rem 1.4rem; border-radius: 24px; }
+      .card-peeking-kitty { left: 20px; top: -40px; width: 65px; height: 50px; }
+      .music-wrap { bottom: 1rem; right: 1rem; }
+      .music-btn { width: 50px; height: 50px; }
+      .music-btn svg { width: 24px; height: 24px; }
+      .cat-peek svg { width: 70px; height: 60px; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Film Grain Overlay for Analog / Intimate Texture -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- ═══ INLINE SVG ASSETS (Hello Kitty & Sanrio Delicates) ══════════ -->
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Authentic Hello Kitty Head -->
+      <symbol id="kitty" viewBox="0 0 140 110">
+        <path d="M 32,16 C 24,26 16,40 16,60 C 16,82 38,96 70,96 C 102,96 124,82 124,60 C 124,40 116,26 108,16 C 102,24 94,32 82,32 C 76,32 64,32 58,32 C 46,32 38,24 32,16 Z"
+              fill="#ffffff" stroke="#221e1f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="34" y1="60" x2="10" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="32" y1="68" x2="8" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="34" y1="76" x2="12" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="60" x2="130" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="108" y1="68" x2="132" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="76" x2="128" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="52" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="88" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="70" cy="70" rx="5" ry="3.6" fill="#fecb00" stroke="#221e1f" stroke-width="2.2"/>
+        <path d="M 46,30 C 28,14 14,26 22,43 C 28,54 41,45 46,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 26,32 C 31,37 36,38 41,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M 52,30 C 70,14 84,26 76,43 C 70,54 57,45 52,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 72,32 C 67,37 62,38 57,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="49" cy="33" r="8.5" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2"/>
+        <ellipse cx="47" cy="30" rx="3.5" ry="2" fill="#ff7da7" transform="rotate(-25 47 30)"/>
+      </symbol>
+
+      <!-- Hello Kitty Peeking with Paws -->
+      <symbol id="kitty-peeking" viewBox="0 0 140 115">
+        <path d="M 32,16 C 24,26 16,40 16,60 C 16,82 38,96 70,96 C 102,96 124,82 124,60 C 124,40 116,26 108,16 C 102,24 94,32 82,32 C 76,32 64,32 58,32 C 46,32 38,24 32,16 Z"
+              fill="#ffffff" stroke="#221e1f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="34" y1="60" x2="10" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="32" y1="68" x2="8" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="34" y1="76" x2="12" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="60" x2="130" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="108" y1="68" x2="132" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="76" x2="128" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="52" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="88" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="70" cy="70" rx="5" ry="3.6" fill="#fecb00" stroke="#221e1f" stroke-width="2.2"/>
+        <path d="M 46,30 C 28,14 14,26 22,43 C 28,54 41,45 46,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 26,32 C 31,37 36,38 41,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M 52,30 C 70,14 84,26 76,43 C 70,54 57,45 52,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 72,32 C 67,37 62,38 57,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="49" cy="33" r="8.5" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2"/>
+        <ellipse cx="44" cy="98" rx="10.5" ry="8" fill="#ffffff" stroke="#221e1f" stroke-width="3.2"/>
+        <ellipse cx="96" cy="98" rx="10.5" ry="8" fill="#ffffff" stroke="#221e1f" stroke-width="3.2"/>
+      </symbol>
+
+      <!-- Full Body Hello Kitty Holding Love Letter -->
+      <symbol id="kitty-full" viewBox="0 0 140 160">
+        <ellipse cx="54" cy="148" rx="12" ry="7" fill="#ff1a53" stroke="#221e1f" stroke-width="3"/>
+        <ellipse cx="86" cy="148" rx="12" ry="7" fill="#ff1a53" stroke="#221e1f" stroke-width="3"/>
+        <path d="M 50,86 C 42,96 40,122 42,142 C 52,145 88,145 98,142 C 100,122 98,96 90,86 Z"
+              fill="#ff4081" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <circle cx="46" cy="96" r="8" fill="#ffe600" stroke="#221e1f" stroke-width="2.5"/>
+        <circle cx="94" cy="96" r="8" fill="#ffe600" stroke="#221e1f" stroke-width="2.5"/>
+        <path d="M 58,86 C 64,92 76,92 82,86 Z" fill="#ffe600" stroke="#221e1f" stroke-width="2"/>
+        <circle cx="56" cy="100" r="2.8" fill="#ffe600" stroke="#221e1f" stroke-width="1.8"/>
+        <circle cx="84" cy="100" r="2.8" fill="#ffe600" stroke="#221e1f" stroke-width="1.8"/>
+        <rect x="52" y="104" width="36" height="26" rx="4" fill="#ffffff" stroke="#ff1a53" stroke-width="2.2"/>
+        <path d="M 53,105 L 70,119 L 87,105" stroke="#ff1a53" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+        <path d="M 70,122 C 67,118 62,119 62,122 C 62,124 70,128 70,128 C 70,128 78,124 78,122 C 78,119 73,118 70,122 Z" fill="#ff1a53"/>
+        <ellipse cx="48" cy="116" rx="7.5" ry="6.5" fill="#ffffff" stroke="#221e1f" stroke-width="2.8"/>
+        <ellipse cx="92" cy="116" rx="7.5" ry="6.5" fill="#ffffff" stroke="#221e1f" stroke-width="2.8"/>
+        <path d="M 32,16 C 24,26 16,40 16,60 C 16,82 38,96 70,96 C 102,96 124,82 124,60 C 124,40 116,26 108,16 C 102,24 94,32 82,32 C 76,32 64,32 58,32 C 46,32 38,24 32,16 Z"
+              fill="#ffffff" stroke="#221e1f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="34" y1="60" x2="10" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="32" y1="68" x2="8" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="34" y1="76" x2="12" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="60" x2="130" y2="56" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="108" y1="68" x2="132" y2="68" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <line x1="106" y1="76" x2="128" y2="80" stroke="#221e1f" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="52" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="88" cy="63" rx="4.2" ry="6" fill="#221e1f"/>
+        <ellipse cx="70" cy="70" rx="5" ry="3.6" fill="#fecb00" stroke="#221e1f" stroke-width="2.2"/>
+        <path d="M 46,30 C 28,14 14,26 22,43 C 28,54 41,45 46,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 26,32 C 31,37 36,38 41,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M 52,30 C 70,14 84,26 76,43 C 70,54 57,45 52,36 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M 72,32 C 67,37 62,38 57,36" stroke="#221e1f" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="49" cy="33" r="8.5" fill="#ff1a53" stroke="#221e1f" stroke-width="3.2"/>
+        <ellipse cx="47" cy="30" rx="3.5" ry="2" fill="#ff7da7" transform="rotate(-25 47 30)"/>
+      </symbol>
+
+      <!-- Iconic Hello Kitty Bow -->
+      <symbol id="bow" viewBox="0 0 70 46">
+        <path d="M 28,16 C 10,4 0,16 6,30 C 11,38 22,32 28,24 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 9,19 C 14,24 19,25 24,23" stroke="#221e1f" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 42,16 C 60,4 70,16 64,30 C 59,38 48,32 42,24 Z" fill="#ff1a53" stroke="#221e1f" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M 61,19 C 56,24 51,25 46,23" stroke="#221e1f" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="35" cy="21" r="8.5" fill="#ff1a53" stroke="#221e1f" stroke-width="3"/>
+        <ellipse cx="33" cy="18" rx="3.5" ry="2" fill="#ff7da7" transform="rotate(-25 33 18)"/>
+      </symbol>
+
+      <!-- Sanrio Red Apple -->
+      <symbol id="apple" viewBox="0 0 40 40">
+        <path d="M 20,12 C 20,6 23,4 25,3" stroke="#5d4037" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 22,7 C 27,4 32,7 30,11 C 26,12 23,10 22,7 Z" fill="#7cb342" stroke="#221e1f" stroke-width="1.8"/>
+        <path d="M 20,13 C 14,9 6,14 7,24 C 8,33 18,37 20,37 C 22,37 32,33 33,24 C 34,14 26,9 20,13 Z"
+              fill="#e53935" stroke="#221e1f" stroke-width="2.5" stroke-linejoin="round"/>
+        <ellipse cx="14" cy="20" rx="2.5" ry="5" fill="#ff8a80" transform="rotate(-20 14 20)"/>
+      </symbol>
+
+      <!-- Sanrio Strawberry -->
+      <symbol id="strawberry" viewBox="0 0 36 40">
+        <path d="M 18,12 C 10,12 5,19 7,28 C 9,35 16,38 18,38 C 20,38 27,35 29,28 C 31,19 26,12 18,12 Z"
+              fill="#ff2d6d" stroke="#221e1f" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="14" cy="20" r="1.2" fill="#ffe082"/>
+        <circle cx="22" cy="20" r="1.2" fill="#ffe082"/>
+        <circle cx="18" cy="26" r="1.2" fill="#ffe082"/>
+        <circle cx="13" cy="29" r="1.2" fill="#ffe082"/>
+        <circle cx="23" cy="29" r="1.2" fill="#ffe082"/>
+        <path d="M 18,12 C 16,6 10,7 11,10 C 13,11 15,12 18,12 C 21,12 23,11 25,10 C 26,7 20,6 18,12 Z" fill="#66bb6a" stroke="#221e1f" stroke-width="1.8"/>
+        <path d="M 18,7 L 18,3" stroke="#221e1f" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Pink Heart with Highlight -->
+      <symbol id="heart" viewBox="0 0 32 30">
+        <path d="M 16,28 C 10,23 2,16 2,9 C 2,4 6,1 11,1 C 13.5,1 15,2.5 16,4 C 17,2.5 18.5,1 21,1 C 26,1 30,4 30,9 C 30,16 22,23 16,28 Z"
+              fill="#ff4081" stroke="#221e1f" stroke-width="2.2" stroke-linejoin="round"/>
+        <ellipse cx="8" cy="7" rx="2.5" ry="4" fill="#ff80ab" transform="rotate(-30 8 7)"/>
+      </symbol>
+
+      <!-- Delicate 4-Point Sparkle Star -->
+      <symbol id="sparkle-star" viewBox="0 0 24 24">
+        <path d="M 12,0 C 12,7 17,12 24,12 C 17,12 12,17 12,24 C 12,17 7,12 0,12 C 7,12 12,7 12,0 Z" fill="#f783ac"/>
+      </symbol>
+
+      <!-- Music Note -->
+      <symbol id="music-note" viewBox="0 0 24 24">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" fill="#ffffff"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ═══ WELCOME OVERLAY SCREEN ══════════════════════════════════════ -->
+  <div id="welcome-overlay">
+    <svg class="overlay-kitty"><use href="#kitty-full"/></svg>
+    <div class="overlay-title">to my piz, the person i never expected to fall for. 🤍</div>
+    <div class="overlay-sub">a quiet confession written from the heart</div>
+    <button class="overlay-btn" id="overlayBtn">
+      <svg><use href="#bow"/></svg>
+      Open My Letter
+      <svg><use href="#bow"/></svg>
+    </button>
+    <div class="overlay-icons">
+      <svg><use href="#bow"/></svg>
+      <svg><use href="#apple"/></svg>
+      <svg><use href="#kitty"/></svg>
+      <svg><use href="#strawberry"/></svg>
+      <svg><use href="#heart"/></svg>
+    </div>
+  </div>
+
+  <!-- Particle Sparkle Canvas (delicate drifting dust) -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Corner Peekers -->
+  <div class="cat-peek bottom-left"><svg><use href="#kitty-peeking"/></svg></div>
+  <div class="cat-peek bottom-right"><svg><use href="#kitty-peeking"/></svg></div>
+
+  <!-- Floating Music Player Button -->
+  <div class="music-wrap">
+    <div class="music-hint">Click to play our song 🎵</div>
+    <button class="music-btn" id="musicBtn" title="Play our playlist" aria-label="Play music">
+      <svg><use href="#bow"/></svg>
+    </button>
+  </div>
+  <audio id="bgMusic">
+    <source src="song1.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="bgMusic2">
+    <source src="song2.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ═══ INTIMATE PAGE WRAPPER ═══════════════════════════════════════ -->
+  <div class="page-wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-glow-ring"></div>
+
+      <div class="hero-kitty-wrap">
+        <svg><use href="#kitty-full"/></svg>
+      </div>
+
+      <div class="hero-pretitle">a letter for you</div>
+      <h1 class="hero-title">to my piz, the person i never expected to fall for.</h1>
+      <p class="hero-subtitle">written with complete honesty, and all my heart</p>
+
+      <div class="hero-icons-row" aria-hidden="true">
+        <svg width="24" height="24"><use href="#bow"/></svg>
+        <svg width="22" height="22"><use href="#apple"/></svg>
+        <svg width="28" height="22"><use href="#kitty"/></svg>
+        <svg width="22" height="22"><use href="#strawberry"/></svg>
+        <svg width="24" height="24"><use href="#heart"/></svg>
+      </div>
+
+      <div class="scroll-hint">
+        <span>scroll down to read</span>
+        <span class="arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider" aria-hidden="true">
+      <svg><use href="#bow"/></svg>
+      <svg><use href="#heart"/></svg>
+      <svg><use href="#kitty"/></svg>
+      <svg><use href="#heart"/></svg>
+      <svg><use href="#bow"/></svg>
+    </div>
+
+    <!-- ═══ THE LETTER (EXACT WORDS, PRESERVED COMPLETELY) ══════════════ -->
+    <main class="section" id="letter">
+      <article class="letter-card">
+
+        <!-- Peeking Kitty at card edge -->
+        <svg class="card-peeking-kitty" aria-hidden="true"><use href="#kitty-peeking"/></svg>
+        <svg class="card-bow-decor" aria-hidden="true"><use href="#bow"/></svg>
+
+        <h2 class="letter-title">to my piz, the person i never expected to fall for.</h2>
+        <div class="letter-salutation">hi, piz.</div>
+
+        <div class="letter-body">
+          <p>i don't really know where to start, honestly. i've been wanting to put these feelings into words, but every time i try, parang ang daming gustong lumabas sa isip ko at hindi ko alam kung alin ang uunahin ko. there's just so much i want to say to you, and somehow, words still feel so small compared to what i actually feel.</p>
+
+          <p>pero sige, susubukan ko.</p>
+
+          <p><strong>piz, i didn't expect this. not even a little bit.</strong></p>
+
+          <p>i didn't expect na darating ako sa puntong hahanapin-hanapin kita, na mamimiss kita kahit hindi naman tayo, na magiging masaya ako just because i get to see you, or that the simplest things would remind me of you. i didn't expect na darating yung araw na makakakita lang ako ng hello kitty or anything sanrio-related, and suddenly, ikaw na agad ang unang papasok sa isip ko. it's funny, actually. dati, mga cute things lang naman sila, but now, somehow, they have a little piece of you in them.</p>
+
+          <p>and i think that's one of the things about liking someone. you don't really notice when it starts. one day, they're just someone you talk to on the internet, someone you laugh with, someone you find funny. then, before you even realize it, they've become someone you look forward to, someone you worry about, someone whose happiness matters to you more than you ever planned.</p>
+
+          <p>and then suddenly, you're here, writing a whole letter about them, wondering how the hell you got this attached.</p>
+
+          <p><em>HAHAHAHA. PIZ, ANO BA.</em></p>
+
+          <p>but seriously, i think one of the first things that drew me to you was how funny you are. you're genuinely funny, and i don't think you understand how much i appreciate that about you. you're the kind of person who can make an ordinary conversation feel special without even trying. there's something so comforting about your humor, about the way you talk, about the way you can make me laugh without having to do anything extraordinary.</p>
+
+          <p>it's like i found someone who somehow mirrors a part of me. someone who gets my kind of humor, someone i can be weird around, someone i don't have to impress all the time. i don't have to pretend to be someone more interesting, more likable, or more deserving of attention.</p>
+
+          <p><strong>i can just be me.</strong></p>
+
+          <p>and that's rare, piz. really rare.</p>
+
+          <p>because there are so many people in this world, but not everyone makes you feel like you can put your guard down. not everyone makes you feel like you can exist without constantly worrying about how you're being perceived. not everyone makes you feel safe enough to show the parts of yourself that you usually keep hidden.</p>
+
+          <p>but somehow, you do.</p>
+
+          <p><strong>you became this little safe space for me without even knowing it.</strong> and i don't know if that's something you've always been capable of doing or if it's just something that happens when you're around the right person, but i'm grateful that i got to experience it with you.</p>
+
+          <p>and the more i got to know you, the more i realized that it wasn't just your humor that made me admire you.</p>
+
+          <p>it's your kindness. the way you're thoughtful. the way you seem to have this softness in you that makes me want to be careful with your heart. there's something about you that makes me think,</p>
+
+          <p><em>this is someone i wouldn't want to hurt.</em></p>
+
+          <p>you know that feeling when you meet someone so precious to you that even the thought of being the reason they cry makes your heart ache? that's how i see you, piz. parang ang hirap mong saktan. not because you're weak, but because there's something about you that makes me want to be gentle with you. as if the world has already been unkind enough sometimes, and if i ever get the chance to be part of your life, i would want to be one of the people who make it a little easier for you.</p>
+
+          <p>and i think that's what makes you different to me.</p>
+
+          <p>you're not just someone who's funny and easy to talk to. you're someone whose character i genuinely admire. someone who doesn't just go along with everything for the sake of being accepted. someone who, in my eyes, has something real about them.</p>
+
+          <p>i didn't expect to be this drawn to you. i thought it would just be a simple crush, something light, something i'd eventually laugh about. but somewhere along the way, my feelings became a little more serious than i intended them to be.</p>
+
+          <p>and the thing is, i don't even know exactly when it happened.</p>
+
+          <p>maybe it was in the middle of one of our conversations. maybe it was when you made me laugh at something so stupid that i couldn't stop smiling afterward. maybe it was in the little things you did without realizing how much they meant to me.</p>
+
+          <p>or maybe it was the moment i saw you hurting.</p>
+
+          <p>i don't know if you'll understand what i mean, but there's something that happened to me when i saw you sad for the first time. when i saw you crying, when i saw you breaking down, when i saw you in a moment where you weren't the funny, cheerful person i was used to seeing.</p>
+
+          <p><strong>it hurt.</strong></p>
+
+          <p>and that surprised me, because i remember thinking,</p>
+
+          <p><em>why does this hurt me this much?</em></p>
+
+          <p>we're friends. we talk. we have our little moments, and yes, there's a little landian sometimes, HAHAHA. but who was i to feel this kind of ache just because you were hurting? who was i to feel like i wanted to take away even a little bit of the heaviness you were carrying?</p>
+
+          <p>i couldn't explain it then, and honestly, i still don't know how to explain it perfectly now.</p>
+
+          <p>all i knew was that i didn't like seeing you like that. i didn't like knowing that someone as kind and precious as you could feel so much pain. i wished i could make things easier for you, even just for a moment. i wished i could tell you that you didn't deserve whatever was hurting you, that you didn't have to be okay all the time, that you were allowed to fall apart, too.</p>
+
+          <p>and maybe that's when something changed in me.</p>
+
+          <p>because before that, i could tell myself that you were just an internet friend. someone i happened to meet, someone i happened to enjoy talking to.</p>
+
+          <p>but why did it ache when you were hurting?</p>
+
+          <p>why did your sadness feel heavier than it should have?</p>
+
+          <p>why did i suddenly care about things i couldn't even control?</p>
+
+          <p>i guess that's the thing about feelings. sometimes, they grow quietly, in places you don't even notice, until one day you realize that someone has become important to you in ways you never planned.</p>
+
+          <p><strong>and, piz, you became important to me.</strong></p>
+
+          <p><em>more than i expected. more than i was prepared for.</em></p>
+
+          <p>i wish i could tell you all of this without feeling embarrassed. i wish i could just say what i feel without that little fear in the back of my mind reminding me that i might be getting ahead of myself, that maybe i'm feeling too much, that maybe i'm the only one who sees things this way.</p>
+
+          <p>because, honestly,</p>
+
+          <p><strong>i'm scared.</strong></p>
+
+          <p>i'm scared of being too obvious. scared of saying too much. scared that one day, you'll read all of this and realize just how much space you've taken up in my heart.</p>
+
+          <p>and i'm scared of rejection, too.</p>
+
+          <p>i know i've already told you that i like you, but i don't think that means the fear suddenly disappears. if anything, admitting it made me more aware of how vulnerable i am. because before i told you, i could keep everything to myself. i could admire you quietly, pretend that my feelings weren't as deep as they were, and convince myself that i was perfectly fine with simply liking you from a distance.</p>
+
+          <p>but once you know, there's no taking back the fact that i let you see a little piece of my heart.</p>
+
+          <p>and now, i don't know what to do with all these feelings except be honest about them.</p>
+
+          <p><strong>i like you, piz.</strong></p>
+
+          <p>i like you in the simplest and most complicated way possible. i like the way you make me laugh. i like how thoughtful you are. i like the way you make conversations feel less lonely. i like that i can be myself around you. i like the little things about you that you probably don't even notice. i like the person you are when you're happy, and i care about the person you are when you're not.</p>
+
+          <p>i like you even in the moments when i don't know what to say to you. even when i miss you and have no particular reason to tell you that i do. even when something reminds me of you and all i can do is smile to myself like an idiot.</p>
+
+          <p>and maybe this is embarrassing to admit, but sometimes, i wish i could tell you about every little thing that reminds me of you.</p>
+
+          <p>like when i see hello kitty and think,</p>
+
+          <p><em>piz would probably make me think of her even more if she knew this.</em></p>
+
+          <p>or when something funny happens and you're the kind of person i'd want to tell because i already know that you'd understand why it's funny.</p>
+
+          <p>or when i'm having one of those days when i don't particularly feel like being anyone, and i remember that talking to you makes being myself feel a little easier.</p>
+
+          <p>it's not always about grand gestures or romantic moments. sometimes, it's just the little things. the ordinary moments that become special because, somehow, you're part of them.</p>
+
+          <p>and i think that's how i know that what i feel isn't just about the idea of having you.</p>
+
+          <p><strong>it's about you. the actual you.</strong></p>
+
+          <p>the person i've come to know, the person who makes me laugh, the person whose kindness i admire, the person i worry about, and the person i hope gets to experience the kind of happiness she deserves.</p>
+
+          <p>i don't know if you'll ever see yourself the way i see you, piz. but if there's one thing i wish you could understand, it's that you don't have to do anything extraordinary to be someone worth caring about.</p>
+
+          <p>you don't have to make everyone laugh. you don't have to be strong all the time. you don't have to hide your sadness just because people are used to seeing you smile.</p>
+
+          <p>you are still precious when you're quiet. you're still worth knowing when you're not at your best. you're still deserving of kindness on the days when you don't know how to give that kindness to yourself.</p>
+
+          <p>and if you ever have moments when you feel like you're too much, or not enough, or simply tired of everything, i hope you remember that there's someone out here who sees so many beautiful things in you.</p>
+
+          <p>someone who admires your heart.</p>
+
+          <p>someone who thinks you're a little more special than you probably realize.</p>
+
+          <p>someone who is genuinely happy that, out of all the people in this world, she got to meet you.</p>
+
+          <p>and that someone is me.</p>
+
+          <p>i don't want you to feel pressured by any of this. i'm not writing this to make you feel like you owe me something, and i'm not expecting you to give me an answer that will make all my feelings worth it. i don't want you to like me out of pity, guilt, or the fear of hurting me.</p>
+
+          <p>if you don't feel the same way, i will understand. it might hurt, of course. i'd be lying if i said it wouldn't. but your feelings are yours, and i would never want you to force them just to protect mine.</p>
+
+          <p>i just want you to know.</p>
+
+          <p>i want you to know that somewhere along the way, you became someone i genuinely admire. that you made me feel something i didn't expect to feel. that you reminded me how beautiful it can be to meet someone who makes you feel safe enough to be yourself.</p>
+
+          <p>and if all i ever get to be is someone who admires you from afar, then maybe, someday, i'll learn to be okay with that, too.</p>
+
+          <p>because liking you has never been just about wanting you to be mine. at least, not entirely. it's also about being happy that you exist, about wanting good things to find you, about hoping that life becomes gentler with you, and about wishing you the kind of happiness that stays even after the laughter fades.</p>
+
+          <p>i hope you succeed in the things you're working hard for. i hope you get to do the things you've always wanted to do. i hope you meet people who appreciate your heart and treat your kindness with the care it deserves. i hope you find reasons to smile on the days when smiling feels difficult.</p>
+
+          <p>and i hope you heal from the things you don't always talk about.</p>
+
+          <p><strong>i hope the pain you've carried becomes lighter.</strong> i hope the things that made you cry eventually become things you can look back on without feeling that same heaviness in your chest. i hope life gives you more reasons to believe that not everything beautiful has to end in pain.</p>
+
+          <p>i'll pray for your success, piz. i'll pray for your happiness, your peace, and your healing. not because i expect those prayers to bring you closer to me, but because even if our paths never lead us to the same place romantically,</p>
+
+          <p><strong>i will still want good things for you.</strong></p>
+
+          <p>and maybe that's the most honest thing i can tell you.</p>
+
+          <p><em>i want you to be happy, even in a future where i'm not the person beside you.</em></p>
+
+          <p>of course, a part of me wonders what it would be like if things were different. what it would feel like if one day, i didn't have to hide how happy i am whenever you message me. what it would be like if i could miss you without wondering whether i'm allowed to. what it would be like if the little moments between us could become something more.</p>
+
+          <p>i'd be lying if i said i never thought about it.</p>
+
+          <p>but i also know that not every feeling has to become a relationship to mean something. not every person we fall for is someone we're destined to end up with. sometimes, someone comes into your life and changes the way you see things, even if they never become yours.</p>
+
+          <p>and maybe you're that person for me.</p>
+
+          <p>i don't know what will happen to us. i don't know if we'll ever become something more than the friends we are now. i don't know if the little landian between us means anything beyond what it is, and i don't want to assume that it does.</p>
+
+          <p>all i know is that i like you, and i'm grateful that i got to know you.</p>
+
+          <p>i hope that, whatever happens, we don't lose the little world we've created between us. i hope we can still laugh at stupid things, share random thoughts, and be the people we are around each other. i hope that knowing how i feel doesn't make you feel like you have to become someone different around me.</p>
+
+          <p>because i never wanted my feelings to become a burden to you.</p>
+
+          <p>i just wanted them to be something honest. something you could know about without having to carry the responsibility of giving me the same thing in return.</p>
+
+          <p>and if one day, things do change between us, i hope we can face that honestly, too. but for now, i don't want to ruin something beautiful by demanding that it become something else.</p>
+
+          <p>i'd rather appreciate what we have than make you feel like what we have isn't enough.</p>
+
+          <p>still, if i'm being completely honest, there's a little part of me that wishes i could be someone special to you in the same way that you've become special to me.</p>
+
+          <p>just a little part.</p>
+
+          <p>the part of me that smiles at my screen when your name appears. the part that wants to hear about your day. the part that wants to make you laugh when you're sad. the part that wishes i could be there when the world feels too heavy, even if all i could do was listen.</p>
+
+          <p>the part that wants to remind you that you don't have to face everything alone.</p>
+
+          <p>and maybe that's why, when i think about you, i sometimes remember peter parker.</p>
+
+          <p>not because i think i'm some kind of hero, and definitely not because i believe love means saving someone from everything that hurts them. but because there's something heartbreaking about caring so much for someone when you know that, no matter how much you want to, you can't control everything that happens to them.</p>
+
+          <p>you can't stop every bad thing from happening. you can't take away every painful memory. you can't promise that someone you care about will never cry again.</p>
+
+          <p>sometimes, all you can do is care.</p>
+
+          <p>you can hope. you can stay kind. you can wish that the world would be a little softer with them.</p>
+
+          <p>and you can love the fact that they exist, even when you don't know what place you're meant to have in their life.</p>
+
+          <p><strong>that's what i feel when it comes to you, piz.</strong></p>
+
+          <p>i can't promise i'll always know the right thing to say. i can't promise i'll be able to make every bad day better. and i can't promise that i'll never feel sad about the possibility that we might never become what a part of me hopes we could be.</p>
+
+          <p>but i can be honest about how much i admire you.</p>
+
+          <p>i can be grateful for the laughter, the conversations, the comfort, and the little things that made you someone i never expected to care about this much.</p>
+
+          <p>and i can hope that life will be kind to you, even when i can't be the one to make it so.</p>
+
+          <p>i think i've said so much already, and somehow, i still feel like there's more.</p>
+
+          <p>but maybe that's enough for now.</p>
+
+          <p>maybe it's enough for you to know that you are someone i didn't expect to fall for, someone i didn't plan to miss, someone i didn't mean to think about whenever i see the smallest, silliest things.</p>
+
+          <p>and yet, here i am.</p>
+
+          <p>still smiling because of you.</p>
+
+          <p>still hoping you're doing okay.</p>
+
+          <p>still finding little pieces of you in ordinary things.</p>
+
+          <p>still wishing you the best, even when i don't know whether i'll be part of the future you're walking toward.</p>
+
+          <p>piz, thank you for being you.</p>
+
+          <p>thank you for being funny in a way that makes me feel like i've found someone who speaks my language. thank you for being thoughtful. thank you for making it feel safe to be myself. thank you for being someone whose happiness matters to me, whose sadness i wish i could ease, and whose existence has made my little corner of the world feel a little more special.</p>
+
+          <p>i hope you never forget how precious you are, even on the days when you don't feel like it.</p>
+
+          <p>and if this letter is the only thing you ever receive from me that tells you just how much i've come to admire you, then i hope you read it knowing that every word came from a sincere place in my heart.</p>
+
+          <p>i don't know if i'll ever completely stop being nervous around you. i don't know if i'll ever learn how to miss you without smiling a little or how to see hello kitty without thinking of you.</p>
+
+          <p>and i don't know if there will ever be a day when my feelings become something we can both hold in our hands.</p>
+
+          <p>but i know this.</p>
+
+          <p><strong>i'm happy i met you.</strong></p>
+
+          <p>i'm happy that, in this huge and sometimes exhausting world, i got to know someone like you.</p>
+
+          <p>and even if i never get to call you mine, i will never regret that, for a while,</p>
+
+          <p><strong>my heart chose you.</strong></p>
+
+          <p>so, please, take care of yourself, okay?</p>
+
+          <p>eat properly. rest when you're tired. let yourself cry when things get too heavy. don't feel like you have to be okay just because other people expect you to be. and please, don't forget to be kind to yourself, especially when the world isn't.</p>
+
+          <p>you deserve good things, piz. not just the kind that make you smile for a moment, but the kind that make you feel safe, loved, understood, and genuinely happy to be alive.</p>
+
+          <p>i'll be rooting for you, always.</p>
+
+          <p>from wherever i am, in whatever way i'm allowed to, i'll be wishing you happiness. i'll be praying that you reach your dreams, that you heal from the things that hurt you, and that you never lose the beautiful parts of yourself that make you who you are.</p>
+
+          <p>and if life takes us in different directions someday, i hope you'll still remember that someone once looked at you and thought,</p>
+
+          <p><em>what a beautiful person to have met.</em></p>
+
+          <p>because that's what you are to me.</p>
+
+          <p>someone beautiful.</p>
+
+          <p>someone unexpected.</p>
+
+          <p>someone i never planned to fall for, but someone i'm glad i did.</p>
+
+          <p>and maybe, just maybe, that's all this letter needs to be.</p>
+
+          <p>not a confession asking you to love me back. not a promise that i'll wait forever. not a goodbye to something that hasn't even had the chance to begin.</p>
+
+          <p>just a little piece of my heart, finally finding the courage to tell you the truth.</p>
+
+          <h2 class="letter-climax"><strong>i like you, piz.</strong></h2>
+          <p class="letter-climax-sub"><em>i really, really do.</em></p>
+
+          <p>and if all i ever get to do is admire you from afar, then i'll still be grateful that i got to know the person behind the smile, the humor, and all those little things that made me fall.</p>
+
+          <p>i hope the world is gentle with you.</p>
+
+          <p>i hope you find the happiness you deserve.</p>
+
+          <p>and i hope that, whenever you think back on the people who have crossed your life, you'll remember that there was someone who was genuinely glad you existed.</p>
+
+          <p>someone who never needed you to be perfect to find you precious.</p>
+
+          <p>someone who didn't need to own your heart to wish it well.</p>
+
+          <p>someone who, without ever expecting it, found a little home in you.</p>
+
+          <p>and that someone was me.</p>
+
+          <!-- Arvi Second Name Intimate Note -->
+          <p class="name-note">
+            <em>siguro first time kong ibibigay ang second name ko sa ganito, kasi ewan... you're super special to me. gusto ko arvi ang tawag mo sa'kin.</em>
+          </p>
+
+          <div class="letter-signature">
+            <p class="sig-fondness">with so much fondness, care, and a heart that still gets a little shy whenever it comes to you,</p>
+            <p class="sig-bold"><strong>someone who likes you more than he could ever put into words.</strong></p>
+            <p class="sig-dedication"><em>for you, piz. always wishing you well. ♡</em></p>
+            <div class="sig-name-wrap">
+              <span class="sig-name">— Arvi 🤍</span>
+              <svg><use href="#bow"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>for you, piz. always wishing you well. ♡</span>
+      <svg><use href="#heart"/></svg>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- ═══ JAVASCRIPT LOGIC ════════════════════════════════════════════ -->
+  <script>
+  (() => {
+    'use strict';
+
+    /* ── Helper: create SVG use element ───────────────────────────── */
+    function makeSVG(id, w, h) {
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('width', w);
+      svg.setAttribute('height', h);
+      const symbol = document.querySelector(id);
+      if (symbol && symbol.getAttribute('viewBox')) {
+        svg.setAttribute('viewBox', symbol.getAttribute('viewBox'));
+      }
+      const use = document.createElementNS(svgNS, 'use');
+      use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', id);
+      svg.appendChild(use);
+      return svg;
+    }
+
+    /* ── 1. Floating Hello Kitty & Sanrio SVGs ─────────────────────── */
+    const floatTypes = [
+      '#kitty', '#bow', '#apple', '#strawberry', '#heart',
+      '#kitty', '#bow', '#sparkle-star', '#heart'
+    ];
+    for (let i = 0; i < 20; i++) {
+      const wrap = document.createElement('div');
+      wrap.className = 'float-svg';
+      const typeId = floatTypes[Math.floor(Math.random() * floatTypes.length)];
+      let size = 20 + Math.random() * 28;
+      if (typeId === '#kitty') size = 30 + Math.random() * 26;
+      const svg = makeSVG(typeId, size, size);
+      wrap.appendChild(svg);
+      wrap.style.left = (Math.random() * 95) + 'vw';
+      wrap.style.animationDuration = (12 + Math.random() * 16) + 's';
+      wrap.style.animationDelay = '-' + (Math.random() * 20) + 's';
+      document.body.appendChild(wrap);
+    }
+
+    /* ── 2. Delicate Drifting Dust / Sparkles Canvas ──────────────── */
+    const canvas = document.getElementById('particle-canvas');
+    const ctx    = canvas.getContext('2d');
+    let W, H;
+    const resize = () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const sparkles = [];
+    class Sparkle {
+      constructor() { this.reset(true); }
+      reset(initial = false) {
+        this.x = Math.random() * W;
+        this.y = initial ? Math.random() * H : H + 10;
+        this.size = 1 + Math.random() * 2.8;
+        this.speed = 0.25 + Math.random() * 0.5;
+        this.alpha = 0;
+        this.targetAlpha = 0.25 + Math.random() * 0.45;
+        this.phase = initial ? 'glow' : 'fadein';
+        this.life = 200 + Math.random() * 400;
+        this.tick = 0;
+        this.color = Math.random() > 0.35 ? '#f783ac' : '#ffe066';
+        if (initial) this.alpha = Math.random() * 0.4;
+      }
+      update() {
+        this.y -= this.speed;
+        this.x += Math.sin(this.y * 0.02) * 0.3;
+        this.tick++;
+        if (this.phase === 'fadein') {
+          this.alpha = Math.min(this.alpha + 0.012, this.targetAlpha);
+          if (this.alpha >= this.targetAlpha) this.phase = 'glow';
+        }
+        if (this.tick > this.life) this.phase = 'fadeout';
+        if (this.phase === 'fadeout') {
+          this.alpha -= 0.012;
+          if (this.alpha <= 0) this.reset();
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    for (let i = 0; i < 45; i++) sparkles.push(new Sparkle());
+    function animSparkles() {
+      ctx.clearRect(0, 0, W, H);
+      sparkles.forEach(s => { s.update(); s.draw(); });
+      requestAnimationFrame(animSparkles);
+    }
+    animSparkles();
+
+    /* ── 3. Subtle Paragraph Fade-In on Scroll ────────────────────── */
+    const paragraphObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.letter-body p, .letter-climax').forEach(el => {
+      paragraphObserver.observe(el);
+    });
+
+    /* ── 4. Music Player Support ──────────────────────────────────── */
+    const musicBtn   = document.getElementById('musicBtn');
+    const overlay    = document.getElementById('welcome-overlay');
+    const overlayBtn = document.getElementById('overlayBtn');
+    let   isPlaying  = false;
+
+    const songs = [
+      document.getElementById('bgMusic'),
+      document.getElementById('bgMusic2')
+    ];
+    let currentSong = 0;
+
+    songs.forEach((song, i) => {
+      song.addEventListener('ended', () => {
+        currentSong = (i + 1) % songs.length;
+        songs[currentSong].currentTime = 0;
+        songs[currentSong].play();
+      });
+      song.addEventListener('error', (e) => {
+        console.warn('Audio note on track ' + (i+1) + ':', e);
+      });
+    });
+
+    const setPlaying = (state) => {
+      isPlaying = state;
+      const svgNS = 'http://www.w3.org/2000/svg';
+      musicBtn.innerHTML = '';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('width', '28');
+      svg.setAttribute('height', '28');
+      const use = document.createElementNS(svgNS, 'use');
+      use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', state ? '#music-note' : '#bow');
+      svg.appendChild(use);
+      musicBtn.appendChild(svg);
+      musicBtn.classList.toggle('playing', state);
+    };
+
+    const tryPlay = () => {
+      songs[currentSong].load();
+      return songs[currentSong].play().then(() => {
+        setPlaying(true);
+      }).catch((err) => {
+        console.warn('Audio auto-play note:', err);
+      });
+    };
+
+    const dismissOverlay = () => {
+      overlay.classList.add('hidden');
+      tryPlay();
+    };
+    overlay.addEventListener('click', dismissOverlay);
+    overlayBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissOverlay(); });
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        songs[currentSong].pause();
+        setPlaying(false);
+      } else {
+        tryPlay();
+      }
+      spawnSparkBurst(musicBtn);
+    });
+
+    /* ── 5. Click Spark Burst ─────────────────────────────────────── */
+    const SPARK_IDS = ['#bow', '#kitty', '#apple', '#strawberry', '#heart', '#sparkle-star'];
+
+    function spawnSparkBurst(originEl) {
+      const rect = originEl.getBoundingClientRect();
+      const cx   = rect.left + rect.width / 2;
+      const cy   = rect.top  + rect.height / 2;
+      for (let i = 0; i < 8; i++) {
+        const wrap = document.createElement('div');
+        wrap.className = 'spark-particle';
+        const id = SPARK_IDS[Math.floor(Math.random() * SPARK_IDS.length)];
+        const svg = makeSVG(id, 22, 22);
+        wrap.appendChild(svg);
+        const angle = (Math.PI * 2 / 8) * i + Math.random() * 0.4;
+        const dist  = 50 + Math.random() * 60;
+        wrap.style.setProperty('--dx', `${Math.cos(angle) * dist}px`);
+        wrap.style.setProperty('--dy', `${Math.sin(angle) * dist}px`);
+        wrap.style.left = cx + 'px';
+        wrap.style.top  = cy + 'px';
+        document.body.appendChild(wrap);
+        setTimeout(() => wrap.remove(), 900);
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.music-btn')) return;
+      if (e.target.closest('#welcome-overlay')) return;
+      for (let i = 0; i < 3; i++) {
+        const wrap = document.createElement('div');
+        wrap.className = 'spark-particle';
+        const id = ['#bow', '#heart', '#sparkle-star'][Math.floor(Math.random() * 3)];
+        const svg = makeSVG(id, 18, 18);
+        wrap.appendChild(svg);
+        const angle = Math.random() * Math.PI * 2;
+        const dist  = 25 + Math.random() * 35;
+        wrap.style.setProperty('--dx', `${Math.cos(angle) * dist}px`);
+        wrap.style.setProperty('--dy', `${Math.sin(angle) * dist}px`);
+        wrap.style.left = e.clientX + 'px';
+        wrap.style.top  = e.clientY + 'px';
+        document.body.appendChild(wrap);
+        setTimeout(() => wrap.remove(), 850);
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
